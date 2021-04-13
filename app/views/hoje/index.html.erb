@@ -1,0 +1,16 @@
+<p></p>
+<p>Hoje é <%= l(@agora, format: "%A").downcase%></p>
+<p><%= l(@agora, format: '%d de %B de %Y').downcase%></p>
+
+<%# <p><%= @agora.yday estação</p> %>
+<p>Estamos no <%= @trimestre %>º trimestre</p>
+<p><%= l @agora, format: '%W' %>ª semana</p>
+<p><%= @agora.yday %>º dia</p>
+<hr>
+<p>Você está com <%= number_with_delimiter(@idade, delimiter: ',')%> anos</p>
+<p>Já viveu <%= number_with_delimiter(@semanas_vividas, delimiter: '.') %> semanas </p>
+<p>E uma expectativa de mais <%= number_with_delimiter(@expectativa, delimiter: '.') %> pra viver</p>
+<p>Uns <%=@anos_restantes%> anos ainda, vai</p>
+<hr>
+<address><%=@frase_do_dia%></address>
+<address><%=@autor%></address>

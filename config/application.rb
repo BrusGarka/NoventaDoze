@@ -11,6 +11,16 @@ module Noventadoze
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,ym}')]
+
+    config.i18n.available_locales = [:en, "pt-BR"]
+    config.i18n.default_locale = "pt-BR"
+
+    config.time_zone = 'Brasilia'
+
+    config.active_record.default_timezone = :local
+
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
