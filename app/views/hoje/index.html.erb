@@ -10,7 +10,7 @@
   <p>Você está com <%= number_with_delimiter(@idade, delimiter: ',')%> anos</p>
   <p>Já viveu <%= number_with_delimiter(@semanas_vividas, delimiter: '.') %> semanas </p>
   <p>E uma expectativa de mais <%= number_with_delimiter(@expectativa, delimiter: '.') %> pra viver</p>
-  <p>Uns <%=@anos_restantes%> anos ainda, vai</p>
+  <p>Uns <%=@anos_restantes%> anos ainda, vai... <%=l @ultimo_ano, format: '%Y'%> se pah</p>
   <hr>
   <address><%=@frase_do_dia%></address>
   <address><%=@autor%></address>
