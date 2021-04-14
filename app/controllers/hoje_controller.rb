@@ -15,19 +15,23 @@ class HojeController < ApplicationController
     @expectativa = (((@nascimento + 72.years) - @agora)/60/60/24/7).round(0)
     @anos_restantes = age(@agora, @nascimento+72.years)
     # yday
-    coletar_pensador
+    coletar_pensador params[:date]
   end
 
   def age(inicial, final)
     final.year - inicial.year - ((final.month > inicial.month || (final.month == inicial.month && final.day >= inicial.day)) ? 0 : 1)
   end
 
-  def coletar_pensador
+  def coletar_pensador data
     require 'mechanize'
     agent = Mechanize.new
 
-    temas = ['frases_de_belchior', 'frases_de_fernando_pessoa', 'leon_tolstoi', 'soren_kierkegaard', 'carlos_drummond_de_andrade']
-    tema_escolhido = rand(0..(temas.count-1))
+    temas = ['frases_chorao', 'frases_de_belchior', 'frases_de_fernando_pessoa', 'leon_tolstoi', 'soren_kierkegaard', 'carlos_drummond_de_andrade']
+    if data == '23-06-1995'
+      tema_escolhido = 0
+    else
+      tema_escolhido = rand(0..(temas.count-1))
+    end
     homepage = agent.get("https://pensador.com/#{temas[tema_escolhido]}")
 
     paginas = homepage.css('div#paginacao > a').count - 1
