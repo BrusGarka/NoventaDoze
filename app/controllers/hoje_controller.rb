@@ -3,7 +3,7 @@ class HojeController < ApplicationController
     # byebug
     @agora = Time.zone.now
     @trimestre = (@agora.month / 3.0).ceil
-    @nascimento = Time.zone.parse("22/11/1993")
+    @nascimento = Time.zone.parse(params[:date])
     diff = @agora - @nascimento
     @idade = (diff/60/60/24/365).round(1) #age
     @semanas_vividas = (diff/60/60/24/7).round(0)
