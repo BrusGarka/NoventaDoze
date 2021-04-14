@@ -1,6 +1,11 @@
 class HojeController < ApplicationController
   def index
     # byebug
+    @passou_param = params[:date].present?
+    if !@passou_param
+      params[:date] = '22-11-1993'
+    end
+
     @agora = Time.zone.now
     @trimestre = (@agora.month / 3.0).ceil
     @nascimento = Time.zone.parse(params[:date])
@@ -21,7 +26,7 @@ class HojeController < ApplicationController
     require 'mechanize'
     agent = Mechanize.new
 
-    temas = ['frases_de_belchior', 'frases_de_fernando_pessoa']
+    temas = ['frases_de_belchior', 'frases_de_fernando_pessoa', 'leon_tolstoi', 'soren_kierkegaard', 'carlos_drummond_de_andrade']
     tema_escolhido = rand(0..(temas.count-1))
     homepage = agent.get("https://pensador.com/#{temas[tema_escolhido]}")
 

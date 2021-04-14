@@ -1,16 +1,34 @@
-<p></p>
-<p>Hoje é <%= l(@agora, format: "%A").downcase%></p>
-<p><%= l(@agora, format: '%d de %B de %Y').downcase%></p>
+<% if @passou_param == true %>
+  <p>Hoje é <%= l(@agora, format: "%A").downcase %></p>
+  <p><%= l(@agora, format: '%d de %B de %Y').downcase %></p>
 
-<%# <p><%= @agora.yday estação</p> %>
-<p>Estamos no <%= @trimestre %>º trimestre</p>
-<p><%= l @agora, format: '%W' %>ª semana</p>
-<p><%= @agora.yday %>º dia</p>
-<hr>
-<p>Você está com <%= number_with_delimiter(@idade, delimiter: ',')%> anos</p>
-<p>Já viveu <%= number_with_delimiter(@semanas_vividas, delimiter: '.') %> semanas </p>
-<p>E uma expectativa de mais <%= number_with_delimiter(@expectativa, delimiter: '.') %> pra viver</p>
-<p>Uns <%=@anos_restantes%> anos ainda, vai</p>
-<hr>
-<address><%=@frase_do_dia%></address>
-<address><%=@autor%></address>
+  <%# <p><%= @agora.yday estação</p> %>
+  <p>Estamos no <%= @trimestre %>º trimestre</p>
+  <p><%= l @agora, format: '%W' %>ª semana</p>
+  <p><%= @agora.yday %>º dia</p>
+  <hr>
+  <p>Você está com <%= number_with_delimiter(@idade, delimiter: ',')%> anos</p>
+  <p>Já viveu <%= number_with_delimiter(@semanas_vividas, delimiter: '.') %> semanas </p>
+  <p>E uma expectativa de mais <%= number_with_delimiter(@expectativa, delimiter: '.') %> pra viver</p>
+  <p>Uns <%=@anos_restantes%> anos ainda, vai</p>
+  <hr>
+  <address><%=@frase_do_dia%></address>
+  <address><%=@autor%></address>
+  <br>
+<% else %>
+  <p>Bem-vindo ao NoventaDoze =]]</p>
+  <p>Zé, só adicionar sua data de nascimento na url ali em cima, tipo:</p>
+  <p>https:/noventadoze.herokuapp.com/<b>22-11-1993</b></p>
+  <p>Depois add na tela inicial do seu cel e daí só conferir rotineiramente</p>
+  <%# <div class="field">
+    <%= form.label :date_birth %>
+    <%# <%= form.datetime_select :date_birth, start_year: 1959 %> 
+  <%# </div>  %>
+  <hr>
+  <address>Ensina-nos a contar nossos dias para que o nosso coração alcance a sabedoria.
+  </address>
+  <p>Salmo 90:12.</p>
+
+
+<% end %>
+<a href="https://github.com/BrusGarka/noventadoze" style="color:#bbb">por @brusgarka</p>
