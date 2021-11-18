@@ -10,7 +10,7 @@ class HojeController < ApplicationController
     @trimestre = (@agora.month / 3.0).ceil
     @nascimento = Time.zone.parse(params[:date])
     diff = @agora - @nascimento
-    @idade = ((@agora - @nascimento.to_time) / 1.year).floor(1)
+    @idade = ((@agora - @nascimento.to_time) / 1.year).floor(2)
     @semanas_vividas = (diff/60/60/24/7).round(0)
     @expectativa = (((@nascimento + 72.years) - @agora)/60/60/24/7).round(0)
     @anos_restantes = age(@agora, @nascimento+72.years)
